@@ -20,12 +20,6 @@ const middleware = [
   }),
 ];
 
-const authPersistConfig = {
-  key: 'auth',
-  storage: storage,
-  whitelist: ['token'],
-};
-
 const plannerPersistConfig = {
   key: 'planner',
   storage: storage,

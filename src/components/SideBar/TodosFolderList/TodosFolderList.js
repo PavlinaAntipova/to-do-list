@@ -2,7 +2,16 @@ import {NavLink, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {MdOutlineDeleteOutline} from 'react-icons/md';
 
-import s from './TodosFolderList.module.css';
+import {
+  Text,
+  List,
+  Item,
+  Link,
+  Name,
+  Amount,
+  DeleteBtn,
+} from './TodosFolderList.styled';
+
 import {
   getFoldersId,
   getFoldersItems,
@@ -19,8 +28,6 @@ export default function TodosFolderList() {
   const todosItem = useSelector(getTodosItems);
 
   const dispatch = useDispatch();
-  const getClassNameLink = isActive =>
-    isActive ? `${s.link} ${s.active}` : s.link;
   const navigate = useNavigate();
 
   const getAmountTasks = folder =>
@@ -34,13 +41,12 @@ export default function TodosFolderList() {
   return (
     <>
       {!foldersId.length ? (
-        <p className={s.text}>There are no folders...</p>
+        <Text>There are no folders...</Text>
       ) : (
-        <ul>
+        <List>
           {foldersId.map(id => (
-            <li className={s.item} key={id}>
-              <button
-                className={s.deleteBtn}
+            <Item key={id}>
+              <DeleteBtn
                 type="button"
                 onClick={() => {
                   dispatch(deleteFolder(id));
@@ -49,17 +55,14 @@ export default function TodosFolderList() {
                 }}
               >
                 <MdOutlineDeleteOutline />
-              </button>
-              <NavLink
-                to={`folders/${id}`}
-                className={({isActive}) => getClassNameLink(isActive)}
-              >
-                <p className={s.name}>{foldersItem[id]?.name}</p>
-              </NavLink>
-              <span className={s.amount}>{getAmountTasks(id)}</span>
-            </li>
+              </DeleteBtn>
+              <Link to={`folders/${id}`}>
+                <Name>{foldersItem[id]?.name}</Name>
+              </Link>
+              <Amount>{getAmountTasks(id)}</Amount>
+            </Item>
           ))}
-        </ul>
+        </List>
       )}
     </>
   );

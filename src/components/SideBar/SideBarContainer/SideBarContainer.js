@@ -1,44 +1,23 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 
-import Filter from '../Filter';
 import TodosFolderList from '../TodosFolderList';
-import Form from '../../Form';
+import Form from '../../InputText';
 
-import s from './SideBarContainer.module.css';
+import {SideBar, Controls, Btn} from './SideBarContainer.styled';
 
 function SideBarContainer() {
-  const getClassNameBtn = isActive =>
-    isActive ? `${s.btn} ${s.active}` : s.btn;
-
   return (
-    <aside className={s.aside}>
-      {/* <div className="user">
-                <p>User</p>
-            </div> */}
-      {/* <Filter /> */}
-      <div className={s.controls}>
-        <NavLink
-          className={({isActive}) => getClassNameBtn(isActive)}
-          to="today"
-        >
-          Today
-        </NavLink>
-        <NavLink className={({isActive}) => getClassNameBtn(isActive)} to="all">
-          All tasks
-        </NavLink>
-        <NavLink
-          className={({isActive}) => getClassNameBtn(isActive)}
-          to="completed"
-        >
-          Completed tasks
-        </NavLink>
-      </div>
+    <SideBar>
+      <Controls>
+        <Btn to="today">Today</Btn>
+        <Btn to="all">All tasks</Btn>
+        <Btn to="completed">Completed tasks</Btn>
+      </Controls>
 
       <TodosFolderList />
 
       <Form textBtn="+" placeholder="add new list here" name="folder" />
-    </aside>
+    </SideBar>
   );
 }
 
