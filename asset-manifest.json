@@ -1,13 +1,27 @@
 {
   "files": {
-    "main.css": "/to-do-list/static/css/main.439c8129.css",
-    "main.js": "/to-do-list/static/js/main.d118f9bc.js",
+    "main.css": "/to-do-list/static/css/main.0843f959.css",
+    "main.js": "/to-do-list/static/js/main.e109fa71.js",
+    "static/media/hero-bg.png": "/to-do-list/static/media/hero-bg.a161a16139a03c683042.png",
+    "static/media/bg-5.png": "/to-do-list/static/media/bg-5.c7cc0ca3b2eacf444e82.png",
+    "static/media/bg-4.png": "/to-do-list/static/media/bg-4.09ac39a7fbbaeb0076e4.png",
+    "static/media/bg-1.png": "/to-do-list/static/media/bg-1.51924f0214d992fd7feb.png",
+    "static/media/bg-3.png": "/to-do-list/static/media/bg-3.2b2c616bdcbf5130e04d.png",
+    "static/media/bg-2.png": "/to-do-list/static/media/bg-2.910743d5e67ee36b4598.png",
+    "static/media/hero-ornamet-1.svg": "/to-do-list/static/media/hero-ornamet-1.a43d353d883d58791365df2aa9873182.svg",
+    "static/media/hero-ornamet-3.svg": "/to-do-list/static/media/hero-ornamet-3.954bb5d5f7fd5c453779161cbfcbc35f.svg",
+    "static/media/hero-ornamet-5.svg": "/to-do-list/static/media/hero-ornamet-5.268fdf6599b63e13d37a66f36f922b1d.svg",
+    "static/media/hero-ornamet-2.svg": "/to-do-list/static/media/hero-ornamet-2.f25010b6169b210109f8a79f23e5cf46.svg",
     "index.html": "/to-do-list/index.html",
-    "main.439c8129.css.map": "/to-do-list/static/css/main.439c8129.css.map",
-    "main.d118f9bc.js.map": "/to-do-list/static/js/main.d118f9bc.js.map"
+    "static/media/hero-ornamet-4.svg": "/to-do-list/static/media/hero-ornamet-4.1fde04340bcef9b4e4729324dba263a2.svg",
+    "static/media/hero-ornamet-7.svg": "/to-do-list/static/media/hero-ornamet-7.89b6cc7115aa83e440ff5315fcca6642.svg",
+    "static/media/hero-ornamet-8.svg": "/to-do-list/static/media/hero-ornamet-8.2bf92d9edcf4f1da0e7edc77c892d31f.svg",
+    "static/media/hero-ornamet-6.svg": "/to-do-list/static/media/hero-ornamet-6.f91cdb7c6382402ed70da5c8535bc7ef.svg",
+    "main.0843f959.css.map": "/to-do-list/static/css/main.0843f959.css.map",
+    "main.e109fa71.js.map": "/to-do-list/static/js/main.e109fa71.js.map"
   },
   "entrypoints": [
-    "static/css/main.439c8129.css",
-    "static/js/main.d118f9bc.js"
+    "static/css/main.0843f959.css",
+    "static/js/main.e109fa71.js"
   ]
 }
