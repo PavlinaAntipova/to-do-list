@@ -1,4 +1,5 @@
 import {BsFillSuitHeartFill} from 'react-icons/bs';
+
 import {
   HomeSection,
   TextBox,
@@ -16,6 +17,7 @@ import {
   StyledOrnamentDottedLineLight,
   StyledOrnamentDottedLineBold,
 } from './style/HomePage.styled';
+
 export function HomePage() {
   return (
     <HomeSection>

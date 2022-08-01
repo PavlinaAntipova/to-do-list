@@ -1,7 +1,8 @@
 import {useLocation} from 'react-router-dom';
 
-import {Header, Logo, Icons, IconChecked, IconUnchecked} from './AppBar.styled';
 import UserMenu from '../UserMenu';
+
+import {Header, Logo, Icons, IconChecked, IconUnchecked} from './AppBar.styled';
 
 function AppBar() {
   const location = useLocation().pathname;

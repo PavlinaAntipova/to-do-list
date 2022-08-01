@@ -1,16 +1,6 @@
-import {NavLink, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {MdOutlineDeleteOutline} from 'react-icons/md';
-
-import {
-  Text,
-  List,
-  Item,
-  Link,
-  Name,
-  Amount,
-  DeleteBtn,
-} from './TodosFolderList.styled';
 
 import {
   getFoldersId,
@@ -21,6 +11,16 @@ import {
   deleteFolder,
   deleteTodosByFolder,
 } from '../../../redux/planner/planner-slice';
+
+import {
+  Text,
+  List,
+  Item,
+  Link,
+  Name,
+  Amount,
+  DeleteBtn,
+} from './TodosFolderList.styled';
 
 export default function TodosFolderList() {
   const foldersId = useSelector(getFoldersId);

@@ -1,22 +1,19 @@
 import React from 'react';
 import {Routes, Route, useLocation} from 'react-router-dom';
 import Moment from 'moment';
+import {ToastContainer} from 'react-toastify';
+import {ThemeProvider} from 'styled-components';
 
 import Layout from '../components/Layout/Layout';
-import {Container, Main} from './App.styled';
-import {HomePage} from '../pages/HomePage';
-import {ThemeProvider} from 'styled-components';
-import {theme} from '../helper/theme';
 import {TasksPage} from '../pages/TasksPage';
-import {useEffect} from 'react';
+import {HomePage} from '../pages/HomePage';
 
-import {ToastContainer} from 'react-toastify';
+import {theme} from '../helper/theme';
+import {Container, Main} from './App.styled';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const location = useLocation().pathname;
-
-  useEffect(() => {}, []);
 
   return (
     <ThemeProvider theme={theme}>

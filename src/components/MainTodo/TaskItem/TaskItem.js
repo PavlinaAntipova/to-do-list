@@ -7,7 +7,6 @@ import {
   changePriority,
   changeDate,
 } from '../../../redux/planner/planner-slice';
-
 import {getFoldersItems} from '../../../redux/selectors';
 import {
   Checkbox,

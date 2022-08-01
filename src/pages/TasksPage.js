@@ -1,10 +1,13 @@
 import {useSelector} from 'react-redux';
 import {useLocation, useParams} from 'react-router-dom';
+import Moment from 'moment';
+
 import InputText from '../components/InputText';
 import TaskItem from '../components/MainTodo/TaskItem/TaskItem';
+
 import {getFoldersItems, getTodosId, getTodosItems} from '../redux/selectors';
+
 import {List, Text, Title} from './style/TasksPage.styled';
-import Moment from 'moment';
 
 export function TasksPage({titleText}) {
   const todosId = useSelector(getTodosId);

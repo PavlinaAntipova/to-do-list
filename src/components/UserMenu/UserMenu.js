@@ -1,8 +1,10 @@
 import Avatar from 'react-avatar';
-import {StyledUserMenu} from './UserMenu.styled';
 import {useState} from 'react';
+
 import Modal from '../Modal';
 import UserStatistics from '../UserStatistics';
+
+import {StyledUserMenu} from './UserMenu.styled';
 
 function UserMenu() {
   const [showModal, setShowModal] = useState(false);

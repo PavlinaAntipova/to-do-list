@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
-import { ChartBox, Info, StyledUserStatistic } from "./UserStatistics.styled";
 import Avatar from 'react-avatar';
-import AllCompletedChart from "../Charts/AllCompletedChart";
-import CompletedByFolderChart from "../Charts/CompletedByFolderChart/CompletedByFolderChart";
-import { getFoldersId, getFoldersItems, getTodosId, getTodosItems } from "../../redux/selectors";
 import Moment from 'moment';
+
+import AllCompletedChart from "../Charts/AllCompletedChart";
+import CompletedByFolderChart from "../Charts/CompletedByFolderChart";
+
+import { getFoldersId, getFoldersItems, getTodosId, getTodosItems } from "../../redux/selectors";
+
+import { ChartBox, Info, StyledUserStatistic } from "./UserStatistics.styled";
 
 function UserStatistics() {
     const foldersId = useSelector(getFoldersId);

@@ -1,8 +1,10 @@
+import {Outlet, useLocation} from 'react-router-dom';
+
 import SideBarContainer from '../SideBar/SideBarContainer';
 import MainTodoContainer from '../MainTodo/MainTodoContainer';
 import AppBar from '../AppBar/AppBar';
-import {Outlet, useLocation} from 'react-router-dom';
-import {MainSection, TodoContainer} from './Layout.styled';
+
+import {MainSection} from './Layout.styled';
 
 function Layout() {
   const location = useLocation().pathname;

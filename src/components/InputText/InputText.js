@@ -2,13 +2,12 @@ import React from 'react';
 import {nanoid} from 'nanoid';
 import Moment from 'moment';
 import {toast} from 'react-toastify';
-
+import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {addFolder, addTodo} from '../../redux/planner/planner-slice';
 
+import {addFolder, addTodo} from '../../redux/planner/planner-slice';
 import {getFoldersItems, getFoldersId} from '../../redux/selectors';
 
-import {useNavigate} from 'react-router-dom';
 import {Form, Input, Btn} from './InputText.styled';
 
 const optionsToast = {
