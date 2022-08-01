@@ -56,6 +56,30 @@ const TodosSlice = createSlice({
         },
       };
     },
+    changePriority(state, action) {
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [action.payload.id]: {
+            ...state.items[action.payload.id],
+            priority: action.payload.priority,
+          },
+        },
+      };
+    },
+    changeDate(state, action) {
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [action.payload.id]: {
+            ...state.items[action.payload.id],
+            date: action.payload.date,
+          },
+        },
+      };
+    },
     deleteTodosByFolder(state, action) {
       const idsInFolder = Object.entries(state.items).map(todo => {
         if (todo[1]?.folder === action.payload) {
@@ -77,7 +101,13 @@ const TodosSlice = createSlice({
 
 export const {addFolder, deleteFolder, updateTodosInFolder} =
   FoldersSlice.actions;
-export const {addTodo, deleteTodo, completeTodo, deleteTodosByFolder} =
-  TodosSlice.actions;
+export const {
+  addTodo,
+  deleteTodo,
+  completeTodo,
+  deleteTodosByFolder,
+  changePriority,
+  changeDate,
+} = TodosSlice.actions;
 export const FolderReducer = FoldersSlice.reducer;
 export const TodosReducer = TodosSlice.reducer;

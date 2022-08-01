@@ -1,84 +1,121 @@
 import React, {useState} from 'react';
-import Form from '../../Form';
-import {
-  MdOutlineRadioButtonUnchecked,
-  MdOutlineCheck,
-  MdOutlineDeleteOutline,
-  MdFolderOpen,
-  MdDateRange,
-} from 'react-icons/md';
-import DatePicker from 'react-datepicker';
-
-import 'react-datepicker/dist/react-datepicker.css';
-
+import {MdOutlineDeleteOutline} from 'react-icons/md';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams} from 'react-router-dom';
-import {deleteTodo, completeTodo} from '../../../redux/planner/planner-slice';
-import s from './TaskItem.module.css';
+import {
+  deleteTodo,
+  completeTodo,
+  changePriority,
+  changeDate,
+} from '../../../redux/planner/planner-slice';
 import {getFoldersItems} from '../../../redux/selectors';
+import {
+  Checkbox,
+  CheckBtn,
+  CheckedIcon,
+  DatePicker,
+  DeleteBtn,
+  DropDown,
+  Info,
+  InfoBox,
+  InfoDate,
+  InfoFolder,
+  PriorityBox,
+  PriorityButton,
+  StyledDateIcon,
+  StyledFolderIcon,
+  Task,
+  TaskText,
+  UncheckedIcon,
+} from './TaskItem.styled';
 
-function TaskItem({text, id, folder, isCompleted, date}) {
+function TaskItem({text, id, folder, isCompleted, date, priority}) {
+  const [priorityBtn, setPriorityBtn] = useState(priority);
+  const [startDate, setStartDate] = useState(date);
   const dispatch = useDispatch();
   const foldersItem = useSelector(getFoldersItems);
-  const [startDate, setStartDate] = useState(new Date());
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  const checkboxClassName = isCompleted => {
-    return isCompleted
-      ? `${s.CheckboxIcon} ${s.checked}`
-      : `${s.CheckboxIcon} ${s.unchecked}`;
+  const onPriorityBtnClick = e => {
+    const typeOfPriority = e.target.dataset.type;
+    setPriorityBtn(typeOfPriority);
+    setShowDropdown(!showDropdown);
+    dispatch(changePriority({id, priority: typeOfPriority}));
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
-    <li className={s.Task}>
-      <button
-        className={s.checkBtn}
-        type="button"
-        onClick={() => {
-          dispatch(completeTodo(id));
-        }}
-      >
-        <MdOutlineRadioButtonUnchecked className={s.UncheckboxIcon} />
-        <MdOutlineCheck className={checkboxClassName(isCompleted)} />
-      </button>
-      <label>
-        <input className={s.checkbox} type="checkbox" />
-        <p className={isCompleted ? s.completed : s.uncompleted}>{text}</p>
-      </label>
-
-      <div className={s.info}>
-        {foldersItem[folder] && (
-          <div className={s.folder}>
-            <MdFolderOpen className={s.folderIcon} />
-            <span>{foldersItem[folder]?.name}</span>
-          </div>
+    <Task>
+      <PriorityBox priority={priorityBtn} onClick={() => toggleDropdown()}>
+        {showDropdown && (
+          <DropDown>
+            <PriorityButton data-type="low" onClick={onPriorityBtnClick}>
+              low
+            </PriorityButton>
+            <PriorityButton data-type="medium" onClick={onPriorityBtnClick}>
+              medium
+            </PriorityButton>
+            <PriorityButton data-type="high" onClick={onPriorityBtnClick}>
+              high
+            </PriorityButton>
+          </DropDown>
         )}
-        {date && (
-          <div className={s.Date}>
-            <MdDateRange className={s.dateIcon} />
-            <span>{date}</span>
-          </div>
-        )}
+      </PriorityBox>
+      <CheckBtn type="button" onClick={() => dispatch(completeTodo(id))}>
+        <UncheckedIcon />
+        <CheckedIcon completed={isCompleted ? 1 : 0} />
+      </CheckBtn>
+      <div>
+        <Checkbox type="checkbox" />
+        <TaskText completed={isCompleted ? 1 : 0}>{text}</TaskText>
       </div>
 
-      <button
-        className={s.deleteBtn}
-        type="button"
-        onClick={() => {
-          dispatch(deleteTodo(id));
-        }}
-      >
-        <MdOutlineDeleteOutline />
-      </button>
-    </li>
+      <Info>
+        <InfoBox>
+          {foldersItem[folder] ? (
+            <>
+              <InfoFolder>
+                <StyledFolderIcon />
+                <span>{foldersItem[folder]?.name}</span>
+              </InfoFolder>
+              <InfoDate>
+                <DatePicker
+                  type="date"
+                  value={startDate}
+                  onChange={e => {
+                    setStartDate(e.target.value);
+                    dispatch(changeDate({id, date: e.target.value}));
+                  }}
+                />
+                <StyledDateIcon />
+              </InfoDate>
+            </>
+          ) : (
+            <>
+              <InfoDate>
+                <DatePicker
+                  type="date"
+                  value={startDate}
+                  onChange={e => {
+                    setStartDate(e.target.value);
+                  }}
+                  onFocus={e => {
+                    dispatch(changeDate({id, date: e.target.value}));
+                  }}
+                />
+                <StyledDateIcon />
+              </InfoDate>
+            </>
+          )}
+        </InfoBox>
+      </Info>
 
-    /* <button type="button">Add to Today</button>
-            <input type="date" />
-            <button type="button">Add target date</button>
-            <textarea placeholder="Add comment" cols="30" rows="10"></textarea>
-            <p>Created ... ago</p>
-            <button type="button">Close</button>
-            <button type="button">Delete</button>
-        */
+      <DeleteBtn type="button" onClick={() => dispatch(deleteTodo(id))}>
+        <MdOutlineDeleteOutline />
+      </DeleteBtn>
+    </Task>
   );
 }
 
