@@ -55,6 +55,7 @@ export default function TodosFolderList() {
             <Item key={id}>
               <DeleteBtn
                 type="button"
+                name="deleteBtn"
                 onClick={() => {
                   dispatch(deleteFolder(id));
                   dispatch(deleteTodosByFolder(id));

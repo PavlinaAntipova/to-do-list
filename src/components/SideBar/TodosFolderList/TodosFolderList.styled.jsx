@@ -52,6 +52,10 @@ display: flex;
    color: #000;
   width: 25px;
   height: 25px;
+
+  & svg {
+    pointer-events: none;
+  }
 `;
 
 

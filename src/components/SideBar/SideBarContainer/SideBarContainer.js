@@ -9,7 +9,11 @@ function SideBarContainer({toggleSideBar}) {
   return (
     <SideBar
       onClick={e => {
-        if (e.target.name === 'folder' || e.target.name === 'folderBtn') {
+        if (
+          e.target.name === 'folder' ||
+          e.target.name === 'folderBtn' ||
+          e.target.name === 'deleteBtn'
+        ) {
           return;
         } else {
           toggleSideBar();
