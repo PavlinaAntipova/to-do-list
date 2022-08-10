@@ -6,7 +6,15 @@ export const Header = styled.header`
 padding: 20px;
 display: flex;
 justify-content: space-between;
-align-items: baseline;
+align-items: center;
+`;
+
+export const SideBarBtn = styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 25px;
+height: 25px;
 `;
 
 

@@ -9,5 +9,5 @@ color: ${props => props.theme.mainAccentColor};
 `;
 
 export const List = styled.ul`
-margin-bottom: 30px;
+
 `;

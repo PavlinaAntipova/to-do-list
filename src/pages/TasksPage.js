@@ -39,6 +39,13 @@ export function TasksPage({titleText}) {
       <Title>{params.id ? foldersItem[params.id]?.name : titleText}</Title>
       {!todosId.length && <Text> There are no tasks...</Text>}
 
+      <InputText
+        textBtn="+"
+        placeholder="add new task here"
+        name="todo"
+        folderId={params.id}
+      />
+
       <List>
         {todosId.map(id => {
           if (chooseTypeOfTasks(location, id)) {
@@ -56,13 +63,6 @@ export function TasksPage({titleText}) {
           }
         })}
       </List>
-
-      <InputText
-        textBtn="+"
-        placeholder="add new task here"
-        name="todo"
-        folderId={params.id}
-      />
     </>
   );
 }

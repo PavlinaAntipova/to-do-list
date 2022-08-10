@@ -1,4 +1,3 @@
-import Avatar from 'react-avatar';
 import {useState} from 'react';
 
 import Modal from '../Modal';
@@ -16,13 +15,12 @@ function UserMenu() {
   return (
     <div>
       <StyledUserMenu onClick={() => toggleModal()}>
-        <Avatar name="Statistics" size="30" round />
-        <p>Your Statistics</p>
+        <p>Your Stats</p>
       </StyledUserMenu>
 
       {showModal && (
         <Modal toggleModal={toggleModal}>
-          <UserStatistics />
+          <UserStatistics toggleModal={toggleModal} />
         </Modal>
       )}
     </div>

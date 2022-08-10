@@ -21,11 +21,18 @@ import {
   Amount,
   DeleteBtn,
 } from './TodosFolderList.styled';
+import {useMediaQuery} from 'react-responsive';
 
 export default function TodosFolderList() {
   const foldersId = useSelector(getFoldersId);
   const foldersItem = useSelector(getFoldersItems);
   const todosItem = useSelector(getTodosItems);
+  const isMobileSmall = useMediaQuery({query: '(max-width: 374px)'});
+  const isMobileMedium = useMediaQuery({minWidth: 375, maxWidth: 424});
+  const isMobileLarge = useMediaQuery({minWidth: 425, maxWidth: 767});
+  const isTablet = useMediaQuery({minWidth: 768, maxWidth: 1023});
+  const isLaptop = useMediaQuery({minWidth: 1024, maxWidth: 1439});
+  const isDesktop = useMediaQuery({query: '(min-width: 1440px)'});
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -57,7 +64,48 @@ export default function TodosFolderList() {
                 <MdOutlineDeleteOutline />
               </DeleteBtn>
               <Link to={`folders/${id}`}>
-                <Name>{foldersItem[id]?.name}</Name>
+                {isMobileSmall && (
+                  <Name>
+                    {foldersItem[id]?.name.length >= 10
+                      ? `${foldersItem[id]?.name.slice(0, 10) + '...'}`
+                      : `${foldersItem[id]?.name}`}
+                  </Name>
+                )}
+                {isMobileMedium && (
+                  <Name>
+                    {foldersItem[id]?.name.length >= 10
+                      ? `${foldersItem[id]?.name.slice(0, 10) + '...'}`
+                      : `${foldersItem[id]?.name}`}
+                  </Name>
+                )}
+                {isMobileLarge && (
+                  <Name>
+                    {foldersItem[id]?.name.length >= 10
+                      ? `${foldersItem[id]?.name.slice(0, 10) + '...'}`
+                      : `${foldersItem[id]?.name}`}
+                  </Name>
+                )}
+                {isTablet && (
+                  <Name>
+                    {foldersItem[id]?.name.length >= 10
+                      ? `${foldersItem[id]?.name.slice(0, 10) + '...'}`
+                      : `${foldersItem[id]?.name}`}
+                  </Name>
+                )}
+                {isLaptop && (
+                  <Name>
+                    {foldersItem[id]?.name.length >= 10
+                      ? `${foldersItem[id]?.name.slice(0, 10) + '...'}`
+                      : `${foldersItem[id]?.name}`}
+                  </Name>
+                )}
+                {isDesktop && (
+                  <Name>
+                    {foldersItem[id]?.name.length >= 10
+                      ? `${foldersItem[id]?.name.slice(0, 10) + '...'}`
+                      : `${foldersItem[id]?.name}`}
+                  </Name>
+                )}
               </Link>
               <Amount>{getAmountTasks(id)}</Amount>
             </Item>

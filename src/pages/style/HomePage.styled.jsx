@@ -13,9 +13,12 @@ import { ReactComponent as OrnamentDottedLineLight } from '../../images/hero-orn
 import { ReactComponent as OrnamentDottedLineBold } from '../../images/hero-ornamet-8.svg';
 
 export const HomeSection = styled.div`
-display: flex;
-justify-content: space-around;
 
+@media screen and (min-width: 768px) {
+    width: 100%;
+display: flex;
+justify-content: space-between;
+}
 `;
 
 export const TextBox = styled.div`
@@ -23,27 +26,47 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+
+@media screen and (min-width: 768px) {
 width: 50%;
+}
+
 `;
 
 export const Title = styled.h1`
-font-size: 42px;
 margin-bottom: 20px;
+font-size: 28px;
+
+@media screen and (min-width: 768px) {
+font-size: 38px;
+}
+
+@media screen and (min-width: 1100px) {
+font-size: 42px;
+}
 `;
 
 export const MainText = styled.p`
-font-size: 26px;
 margin-bottom: 10px;
+font-size: 18px;
+
+@media screen and (min-width: 768px) {
+    font-size: 22px;
+    margin-right: 80px;
+}
+
+@media screen and (min-width: 1100px) {
+font-size: 26px;
+}
 `;
 
 
-
 export const AddText = styled.p`
+margin-bottom: 20px;
+align-self: flex-end;
+opacity: 0.6;
 display: flex;
 align-items: center;
-margin-bottom: 20px;
-opacity: 0.6;
-align-self: flex-end;
 
 & svg {
     margin-left: 10px;
@@ -55,11 +78,15 @@ display: block;
 padding: 20px 30px;
 background-image: ${props => props.theme.btnGradient};
 border-radius: 11px;
-font-size: 22px;
 line-height: 112%;
 letter-spacing: -0.005em;
+
+@media screen and (min-width: 768px) {
+font-size: 22px;
+}
 `;
 
+// mobile: is away
 export const ImageBox = styled.div`
 position: relative;
 height: 500px;

@@ -1,15 +1,18 @@
 import { useSelector } from "react-redux";
-import Avatar from 'react-avatar';
 import Moment from 'moment';
+import {AiOutlineCloseCircle} from 'react-icons/ai';
+
+
 
 import AllCompletedChart from "../Charts/AllCompletedChart";
 import CompletedByFolderChart from "../Charts/CompletedByFolderChart";
 
 import { getFoldersId, getFoldersItems, getTodosId, getTodosItems } from "../../redux/selectors";
 
-import { ChartBox, Info, StyledUserStatistic } from "./UserStatistics.styled";
+import { ChartBox, CloseButton, Info, StyledUserStatistic } from "./UserStatistics.styled";
+import { theme } from "../../helper/theme";
 
-function UserStatistics() {
+function UserStatistics({toggleModal}) {
     const foldersId = useSelector(getFoldersId);
     const folders = useSelector(getFoldersItems);
     const tasksId = useSelector(getTodosId);
@@ -67,8 +70,8 @@ function UserStatistics() {
     
 
     return (<StyledUserStatistic>
+        <CloseButton onClick={() => {toggleModal()}}><AiOutlineCloseCircle size={30} color={ theme.mainAccentColor } /></CloseButton>
         <Info>
-        <Avatar name="Statistics" size="40" round />
         <h2>Your Statistics</h2>
         </Info>
 

@@ -1,4 +1,5 @@
 import {BsFillSuitHeartFill} from 'react-icons/bs';
+import {useMediaQuery} from 'react-responsive';
 
 import {
   HomeSection,
@@ -19,6 +20,8 @@ import {
 } from './style/HomePage.styled';
 
 export function HomePage() {
+  const isMobile = useMediaQuery({query: '(max-width: 767px)'});
+
   return (
     <HomeSection>
       <TextBox>
@@ -30,16 +33,18 @@ export function HomePage() {
         <Btn to={'/today'}>Get start</Btn>
       </TextBox>
 
-      <ImageBox>
-        <StyledOrnamentDots width="100" />
-        <StyledOrnamentCircles width="150" />
-        <StyledOrnamentWaves width="100" />
-        <StyledOrnamentSolidLine width="100" />
-        <StyledOrnamentArrow width="100" />
-        <StyledOrnamentWave width="100" />
-        <StyledOrnamentDottedLineLight width="100" />
-        <StyledOrnamentDottedLineBold width="100" />
-      </ImageBox>
+      {!isMobile && (
+        <ImageBox>
+          <StyledOrnamentDots width="100" />
+          <StyledOrnamentCircles width="150" />
+          <StyledOrnamentWaves width="100" />
+          <StyledOrnamentSolidLine width="100" />
+          <StyledOrnamentArrow width="100" />
+          <StyledOrnamentWave width="100" />
+          <StyledOrnamentDottedLineLight width="100" />
+          <StyledOrnamentDottedLineBold width="100" />
+        </ImageBox>
+      )}
     </HomeSection>
   );
 }

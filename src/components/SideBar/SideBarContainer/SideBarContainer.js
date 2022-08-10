@@ -5,9 +5,17 @@ import Form from '../../InputText';
 
 import {SideBar, Controls, Btn} from './SideBarContainer.styled';
 
-function SideBarContainer() {
+function SideBarContainer({toggleSideBar}) {
   return (
-    <SideBar>
+    <SideBar
+      onClick={e => {
+        if (e.target.name === 'folder' || e.target.name === 'folderBtn') {
+          return;
+        } else {
+          toggleSideBar();
+        }
+      }}
+    >
       <Controls>
         <Btn to="today">Today</Btn>
         <Btn to="all">All tasks</Btn>

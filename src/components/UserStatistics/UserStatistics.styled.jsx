@@ -7,12 +7,15 @@ left: 50%;
 transform: translate(-50%, -50%);
 padding: 20px;
 height: 90vh;
-width: 90vh;
+width: 80vw;
 overflow-y: scroll;
 background-color: #EBE9FD;
 border: 2px solid #FFFFFF;
-border-radius: 64.1055px;
+border-radius: 30px;
 
+@media screen and (min-width: 768px) {
+width: 90vw;
+}
 `;
 
 export const Info = styled.div`
@@ -33,6 +36,12 @@ margin-bottom: 10px;
 & canvas {
     margin: 0 auto;
 }
+`;
+
+export const CloseButton = styled.button`
+position: absolute;
+right: 10px;
+top: 10px;
 `;
 
 

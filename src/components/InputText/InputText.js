@@ -83,7 +83,9 @@ function InputText({textBtn, placeholder, name, folderId}) {
         }}
       >
         <Input type="text" name={name} placeholder={placeholder} />
-        <Btn type="submit">{textBtn}</Btn>
+        <Btn name={`${name}Btn`} type="submit">
+          {textBtn}
+        </Btn>
       </Form>
     </>
   );

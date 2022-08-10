@@ -9,11 +9,8 @@ import {
 
 export const Task = styled.li`
   position: relative;
-  padding: 20px;
-  padding-left: 40px;
   margin-bottom: 20px;
   display: flex;
-  align-items: center;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -22,6 +19,25 @@ export const Task = styled.li`
   &:last-child {
   margin-bottom: 0;
 }
+
+ @media screen and (max-width: 767px) {
+    padding: 10px;
+    padding-left: 40px;
+  flex-direction: column-reverse;
+ }
+
+    @media screen and (min-width: 768px) {
+      padding: 20px;
+      padding-left: 40px;
+      align-items: center;
+    }
+
+
+`;
+
+export const TaskBox = styled.div`
+display: flex;
+align-items: center;
 `;
 
 export const CheckBtn = styled.button`
@@ -37,12 +53,12 @@ export const DeleteBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
   color: ${props => props.theme.mainAccentColor};
   border-radius: 50%;
   background-color: #fff;
   width: 30px;
   height: 30px;
+  margin-left: auto;
   transition: ${props => `color ${props.theme.animationDuration} ${props.theme.animationFunction}`};
 
   &:hover, &:focus {
@@ -93,7 +109,10 @@ position: absolute;
 `;
 
 export const TaskText = styled.p`
+display: block;
+width: 50px;
 margin-right: 40px;
+font-size: 14px;
 transition: ${props => `text-decoration ${props.theme.animationDuration} ${props.theme.animationFunction}`};
 ${props => {
     if (props.completed) {
@@ -102,16 +121,46 @@ ${props => {
         return ``;
     }
 }}
+
+@media screen and (min-width: 375px) {
+width: 65px;
+}
+
+@media screen and (min-width: 425px) {
+width: 100px;
+}
+
+@media screen and (min-width: 768px) {
+width: 270px;
+}
+
+@media screen and (min-width: 1024px) {
+  width: 450px;
+}
+
+
+@media screen and (min-width: 1100px) {
+font-size: 18px;
+width: 540px;
+}
 `;
 
 export const Info = styled.div`
-position: absolute;
-  top: 10px;
-  right: 100px;
   display: flex;
   align-items: center;
   color: grey;
-  font-size: 12px;
+  font-size: 8px;
+
+  @media screen and (min-width: 768px) {
+  position: absolute;
+  top: 5px;
+  right: 50px;
+ 
+  }
+  @media screen and (min-width: 1100px) {
+     right: 40px;
+    font-size: 12px; 
+   }
 `;
 
 export const InfoBox = styled.div`
@@ -119,10 +168,16 @@ display: flex;
 align-items: center;
 `;
 
-export const InfoFolder = styled.div`
+export const InfoFolder = styled.button`
 display: flex;
 align-items: center;
 margin-right: 20px;
+font-size: inherit;
+color: inherit;
+
+&:hover, &:focus {
+  text-decoration: underline;
+}
  
 `;
 
@@ -155,7 +210,9 @@ export const DatePicker = styled.input`
 border: none;
 padding-left: 5px;
   color: grey;
-  font-size: 12px;
+
+  
+    font-size: 8px;
     font-family: 'Ubuntu', sans-serif;
 
 &:focus {
@@ -171,6 +228,10 @@ padding-left: 5px;
     -webkit-appearance: none;
 }
 
+    @media screen and (min-width: 1100px) {
+      font-size: 12px;
+    }
+
 `;
 
 export const PriorityBox = styled.div`
@@ -179,7 +240,7 @@ z-index: 3333;
 top: 50%;
 left: -5px;
 transform: translateY(-50%);
-width: 30px;
+width: 20px;
 height: 50px;
 border-radius: 4px;
 cursor: pointer;
@@ -199,12 +260,16 @@ ${props => {
   }
 }}
 
+@media screen and (min-width: 768px) {
+width: 30px;
+}
+
 `;
 
 export const DropDown = styled.div`
 position: absolute;
 top: 0;
-left: 50%;
+left: 55%;
 padding: 5px;
 background-color: #fff;
 `;
